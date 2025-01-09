@@ -224,6 +224,110 @@ nav a:hover {
     color: #3a7d3a;
 }
 
+/* Section Add Plant */
+.main-add-plant {
+    background-color: #ffffff;
+    padding: 40px 20px;
+    max-width: 800px;
+    margin: 0 auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+.add-plant-title {
+    text-align: center;
+    font-size: 2.2em;
+    color: #3a7d3a;
+    margin-bottom: 20px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.add-plant-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font-size: 1.1em;
+    color: #3a7d3a;
+    margin-bottom: 5px;
+}
+
+input, textarea, select {
+    font-size: 1em;
+    padding: 10px;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    outline: none;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+input:focus, textarea:focus, select:focus {
+    border-color: #3a7d3a;
+    box-shadow: 0 2px 6px rgba(58, 125, 58, 0.2);
+}
+
+.submit-btn {
+    font-size: 1.1em;
+    padding: 10px 20px;
+    background-color: #3a7d3a;
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.submit-btn:hover {
+    background-color: #77b377;
+    transform: scale(1.05);
+}
+
+/* Section Liste des Plantes */
+.plant-list-container {
+    padding: 20px;
+    text-align: center;
+    background-color: #f9f9f9;
+}
+
+.page-title {
+    font-size: 2em;
+    color: #3a7d3a;
+    margin-bottom: 20px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.plant-list {
+    list-style: none;
+    padding: 0;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.plant-item {
+    margin: 10px 0;
+    font-size: 1.2em;
+}
+
+.plant-item a {
+    text-decoration: none;
+    color: #388e3c;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.plant-item a:hover {
+    color: #2c6d2c;
+    text-decoration: underline;
+}
 
 /* Footer */
 footer {
