@@ -18,7 +18,7 @@ body {
 }
 
 .header img {
-    height: 80px;
+    height: 120px;
     width: auto;
 }
 
@@ -28,11 +28,6 @@ body {
     gap: 10px;
 }
 
-.header .logo-text {
-    font-family: 'roboto', sans-serif;
-    font-size: 2em;
-    color: #3a7d3a;
-}
 
 /* Sous-bandeau */
 nav {
@@ -42,7 +37,6 @@ nav {
     justify-content: center; /* Centrer les liens horizontalement */
     gap: 20px;
 }
-
 nav a {
     color: white;
     font-size: 1.1em;
@@ -59,7 +53,7 @@ nav a:hover {
 .main-home {
     text-align: center;
     padding: 40px 20px;
-    background: linear-gradient(to bottom, #ffffff, #e8f5e9);
+    background-color: #d5f5d1; /* Arrière-plan vert clair */
 }
 
 .welcome {
@@ -97,6 +91,20 @@ nav a:hover {
     background-color: #77b377;
     box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
 }
+.images-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.images-container img {
+    width: 45%;
+    max-height: 150px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
 
 
 /* Section principale avec les 4 rubriques */
@@ -126,6 +134,10 @@ nav a:hover {
 
 
 /* Section About */
+.main-about {
+    background: linear-gradient(to bottom, #ffffff, #e8f5e9);
+    padding: 10px 0 0 0;
+}
 
 .about-header h1 {
     font-size: 2.5em;
@@ -165,14 +177,14 @@ nav a:hover {
 
 /* Section Contact */
 .main-contact {
-    padding: 40px 20px;
+    padding: 10px 20px;
     text-align: center;
     background: linear-gradient(to bottom, #ffffff, #e8f5e9);
 }
 
 .main-contact h1 {
     font-size: 2.5em;
-    color: #2e7d32;
+    color: #3a7d3a;
     margin-bottom: 20px;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 }
@@ -196,7 +208,7 @@ nav a:hover {
 
 .contact-details strong {
     font-weight: bold;
-    color: #2e7d32;
+    color: #3a7d3a;
 }
 
 
