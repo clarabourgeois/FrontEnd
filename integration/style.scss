@@ -1,12 +1,134 @@
+/* Styles généraux */
 body {
     font-family: 'Open Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+}
+
+/* Header */
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #d5f5d1;
+    padding: 10px 20px;
+    height: 100px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.header img {
+    height: 80px;
+    width: auto;
+}
+
+.header .logo-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.header .logo-text {
+    font-family: 'Pacifico', cursive;
+    font-size: 2em;
+    color: #3a7d3a;
+}
+
+/* Section Accueil */
+.main-home {
+    text-align: center;
+    padding: 40px 20px;
+    background: linear-gradient(to bottom, #ffffff, #e8f5e9);
+}
+
+.welcome {
+    font-size: 2em;
+    margin: 20px 0;
+    color: #2e7d32;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.links {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin: 30px 0;
+}
+
+.link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 160px;
+    height: 70px;
+    background-color: #88cc88;
+    color: white;
+    font-weight: bold;
+    font-size: 1.2em;
+    text-decoration: none;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, background-color 0.2s, box-shadow 0.2s;
+}
+
+.link:hover {
+    transform: scale(1.1);
+    background-color: #77b377;
+    box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Section About */
+.main-about {
+    padding: 40px 20px;
+    text-align: center;
+    background: linear-gradient(to bottom, #ffffff, #e8f5e9);
+}
+
+.main-about h1 {
+    font-size: 2.5em;
+    color: #2e7d32;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.main-about .content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    font-size: 1.2em;
+    line-height: 1.8;
+    color: #4a4a4a;
+    max-width: 800px;
+    margin: auto;
+}
+
+.main-about img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Footer */
+footer {
+    margin-top: 40px;
+    text-align: center;
+    color: #555;
+    font-size: 0.9em;
+}
+
+footer a {
+    color: #3a7d3a;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+footer a:hover {
+    text-decoration: underline;
 }
 
 a {
-    /*
-        Getting rid of default formatting for <a> elements. `inherits` tells that
-        `a` elements should use the value set on its parent for these properties.
-    */
     text-decoration: inherit;
     color: inherit;
 }
