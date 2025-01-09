@@ -227,7 +227,7 @@ nav a:hover {
 /* Section Add Plant */
 .main-add-plant {
     background-color: #ffffff;
-    padding: 40px 20px;
+    padding: 10px 20px;
     max-width: 800px;
     margin: 0 auto;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -236,7 +236,8 @@ nav a:hover {
 
 .add-plant-title {
     text-align: center;
-    font-size: 2.2em;
+    font-size: 2.5em;
+    font-weight: bold;
     color: #3a7d3a;
     margin-bottom: 20px;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
@@ -293,13 +294,14 @@ input:focus, textarea:focus, select:focus {
 
 /* Section Liste des Plantes */
 .plant-list-container {
-    padding: 20px;
+    padding: 10px;
     text-align: center;
-    background-color: #f9f9f9;
+    background: linear-gradient(to bottom, #ffffff, #e8f5e9);
 }
 
 .page-title {
-    font-size: 2em;
+    font-size: 2.5em;
+    font-weight: bold;
     color: #3a7d3a;
     margin-bottom: 20px;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
