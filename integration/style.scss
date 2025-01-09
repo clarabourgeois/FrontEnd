@@ -14,7 +14,7 @@ body {
     background-color: #d5f5d1;
     padding: 10px 20px;
     height: 100px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .header img {
@@ -32,6 +32,30 @@ body {
     font-family: 'Pacifico', cursive;
     font-size: 2em;
     color: #3a7d3a;
+}
+
+/* Sous-bandeau */
+.sub-header {
+    background-color: #388e3c; /* Vert plus sombre */
+    padding: 10px 0;
+}
+
+.sub-header-links {
+    display: flex;
+    justify-content: center; /* Centrer les liens horizontalement */
+    gap: 20px;
+}
+
+.sub-header-link {
+    color: white;
+    font-size: 1.1em;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.sub-header-link:hover {
+    color: #e8f5e9; /* Vert plus clair pour le survol */
 }
 
 /* Section Accueil */
@@ -67,14 +91,14 @@ body {
     font-size: 1.2em;
     text-decoration: none;
     border-radius: 10px;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: transform 0.2s, background-color 0.2s, box-shadow 0.2s;
 }
 
 .link:hover {
     transform: scale(1.1);
     background-color: #77b377;
-    box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
 }
 
 /* Section About */
@@ -82,6 +106,10 @@ body {
     padding: 40px 20px;
     text-align: center;
     background: linear-gradient(to bottom, #ffffff, #e8f5e9);
+    display: flex;
+    justify-content: space-between; /* Alignement horizontal */
+    gap: 40px; /* Espacement entre le texte et l'image */
+    align-items: center; /* Centrage vertical */
 }
 
 .main-about h1 {
@@ -94,21 +122,24 @@ body {
 .main-about .content {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start; /* Alignement à gauche pour le texte */
     gap: 30px;
     font-size: 1.2em;
     line-height: 1.8;
     color: #4a4a4a;
-    max-width: 800px;
-    margin: auto;
+    max-width: 600px; /* Limitation de la largeur du texte */
 }
 
-.main-about img {
+.about-image {
     max-width: 100%;
     height: auto;
     border-radius: 10px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    object-fit: cover;
+    max-height: 400px; /* Limiter la hauteur de l'image */
+    flex-shrink: 0; /* Empêche l'image de se réduire */
 }
+
 
 /* Footer */
 footer {
