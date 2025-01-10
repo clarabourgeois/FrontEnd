@@ -3,12 +3,19 @@ document.addEventListener("DOMContentLoaded", () => {
     const API_URL = 'https://app-3861dd22-bcbc-49fb-a17d-9e71a5501d1b.cleverapps.io/';
     const fetchPlants = async () => {
         try {
+            console.log('Envoi de la requête API...'); // Log pour vérifier si la requête est envoyée
             const response = await fetch(`${API_URL}api/plants`); // URL de l'API backend
+
+            console.log('Réponse reçue:', response); // Log pour vérifier la réponse
+
             if (!response.ok) {
                 throw new Error("Erreur lors de la récupération des plantes.");
             }
 
             const plants = await response.json(); // Récupération des données JSON
+
+            console.log('Plantes récupérées:', plants); // Log pour vérifier les données des plantes
+
             renderPlantList(plants);
         } catch (error) {
             console.error("Erreur :", error);
