@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const fetchPlants = async () => {
         try {
             console.log('Envoi de la requête API...'); // Log pour vérifier si la requête est envoyée
-            const response = await fetch(`${API_URL}`); // URL de l'API backend
+            const response = await fetch(API_URL); // URL de l'API backend
 
             console.log('Réponse reçue:', response); // Log pour vérifier la réponse
 
@@ -33,8 +33,10 @@ document.addEventListener("DOMContentLoaded", () => {
             listItem.classList.add("plant-item");
 
             const link = document.createElement("a");
-            link.href = `plant-details.html?plant_id=${plant.id}`; // Lien dynamique vers la page détails
-            link.textContent = `${plant.name} (${plant.type})`; // Affiche le nom et le type de plante
+            // Lien dynamique vers la page détails
+            link.href = `plant-details.html?plant_id=${plant.id}`;
+            // Affiche le nom et le type de plante
+            link.textContent = `${plant.name} (${plant.plantType})`;
 
             listItem.appendChild(link);
             plantList.appendChild(listItem);
