@@ -1,10 +1,10 @@
 document.addEventListener("DOMContentLoaded", () => {
     // Fonction pour récupérer les plantes via l'API
-    const API_URL = 'https://app-3861dd22-bcbc-49fb-a17d-9e71a5501d1b.cleverapps.io/';
+    const API_URL = 'https://app-3861dd22-bcbc-49fb-a17d-9e71a5501d1b.cleverapps.io/api/plants';
     const fetchPlants = async () => {
         try {
             console.log('Envoi de la requête API...'); // Log pour vérifier si la requête est envoyée
-            const response = await fetch(`${API_URL}api/plants`); // URL de l'API backend
+            const response = await fetch(`${API_URL}`); // URL de l'API backend
 
             console.log('Réponse reçue:', response); // Log pour vérifier la réponse
 
