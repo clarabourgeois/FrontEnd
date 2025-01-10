@@ -1,12 +1,12 @@
-
 // Fonction pour récupérer les paramètres de l'URL
 const getPlantIdFromUrl = () => {
     const params = new URLSearchParams(window.location.search);
     return params.get('plant_id'); // Retourne l'ID de la plante
 };
+
 // Fonction pour récupérer les données du type de plante à partir de l'API
-const fetchPlantTypeDetails = async (plantId) => {
-    const API_URL = `https://app-3861dd22-bcbc-49fb-a17d-9e71a5501d1b.cleverapps.io/api/types/${plantId}`;
+const fetchPlantTypeDetails = async (plantTypeId) => {
+    const API_URL = `https://app-3861dd22-bcbc-49fb-a17d-9e71a5501d1b.cleverapps.io/api/types/${plantTypeId}`;
     try {
         const response = await fetch(API_URL);
         if (!response.ok) {
@@ -19,11 +19,26 @@ const fetchPlantTypeDetails = async (plantId) => {
     }
 };
 
+// Fonction pour récupérer les données des capteurs
+const fetchSensorData = async () => {
+    const API_URL = `https://app-3861dd22-bcbc-49fb-a17d-9e71a5501d1b.cleverapps.io/api/sensors`;
+    try {
+        const response = await fetch(API_URL);
+        if (!response.ok) {
+            throw new Error("Erreur lors de la récupération des données des capteurs.");
+        }
+        const data = await response.json();
+        return data;
+    } catch (error) {
+        console.error("Erreur lors de la récupération des données des capteurs :", error);
+        return [];
+    }
+};
 
+// Fonction principale à exécuter au chargement de la page
 document.addEventListener("DOMContentLoaded", async () => {
-    const plantId = getPlantIdFromUrl();
-    const API_URL = `https://app-3861dd22-bcbc-49fb-a17d-9e71a5501d1b.cleverapps.io/api/plants/${plantId}`;
-
+    const plantId = parseInt(getPlantIdFromUrl());
+    const PLANT_API_URL = `https://app-3861dd22-bcbc-49fb-a17d-9e71a5501d1b.cleverapps.io/api/plants/${plantId}`;
 
     // Vérifie si un ID est présent dans l'URL
     if (!plantId) {
@@ -32,33 +47,40 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
 
     try {
-        // Envoi de la requête à l'API avec l'ID de la plante
-        const response = await fetch(API_URL);
-        if (!response.ok) {
+        // Récupération des données de la plante
+        const plantResponse = await fetch(PLANT_API_URL);
+        if (!plantResponse.ok) {
             throw new Error("Erreur lors de la récupération des détails de la plante.");
         }
-
-        // Récupération des données de la plante
-        const plant = await response.json();
+        const plant = await plantResponse.json();
 
         // Mise à jour des champs dynamiques dans le DOM
         document.getElementById("plant-name").textContent = plant.name || "No name available";
         document.getElementById("plant-type").textContent = plant.plantType || "Unknown type";
-        //document.getElementById("plant-temperature").textContent = plant.current_temperature !== null ? `${plant.current_temperature}°C` : "N/A";
-        //document.getElementById("plant-humidity").textContent = plant.current_humidity !== null ? `${plant.current_humidity}%` : "N/A";
-        //document.getElementById("plant-luminosity").textContent = plant.current_Light !== null ? `${plant.current_humidity}lux` : "N/A";
 
-        // Récupérer les détails du type de plante pour obtenir les valeurs min et max d'humidité
+        // Récupérer les données des capteurs
+        const sensors = await fetchSensorData();
+
+        // Trouver les capteurs associés à la plante
+        const humiditySensor = sensors.find(sensor => sensor.sensorType === "HUMIDITY" && sensor.plantId === plantId);
+        const temperatureSensor = sensors.find(sensor => sensor.sensorType === "TEMPERATURE" && sensor.plantId === plantId);
+        const lightSensor = sensors.find(sensor => sensor.sensorType === "LIGHT" && sensor.plantId === plantId);
+
+        // Afficher les valeurs des capteurs
+        document.getElementById("plant-humidity").textContent = humiditySensor ? `${humiditySensor.value} %` : "N/A";
+        document.getElementById("plant-temperature").textContent = temperatureSensor ? `${temperatureSensor.value} °C` : "N/A";
+        document.getElementById("plant-luminosity").textContent = lightSensor ? `${lightSensor.value} lux` : "N/A";
+
+        // Récupérer les détails du type de plante pour afficher les messages de température et d'humidité
         const plantTypeDetails = await fetchPlantTypeDetails(plant.plantType);
-
 
         if (plantTypeDetails) {
             // Logique de gestion de la température
             const temperatureMessage = document.getElementById("temperature-message");
-            if (plant.current_temperature < plantTypeDetails.min_temperature) {
+            if (temperatureSensor && temperatureSensor.value < plantTypeDetails.min_temperature) {
                 temperatureMessage.textContent = "It's too cold! Move the plant to a warmer room.";
                 temperatureMessage.style.color = "blue";
-            } else if (plant.current_temperature > plantTypeDetails.max_temprature) {
+            } else if (temperatureSensor && temperatureSensor.value > plantTypeDetails.max_temperature) {
                 temperatureMessage.textContent = "It's too hot! Move the plant to a cooler room.";
                 temperatureMessage.style.color = "red";
             } else {
@@ -68,10 +90,10 @@ document.addEventListener("DOMContentLoaded", async () => {
 
             // Logique de gestion de l'humidité
             const humidityMessage = document.getElementById("humidity-message");
-            if (plant.current_humidity < plantTypeDetails.min_humidity) {
+            if (humiditySensor && humiditySensor.value < plantTypeDetails.min_humidity) {
                 humidityMessage.textContent = "The humidity is too low! Water your plant.";
                 humidityMessage.style.color = "blue";
-            } else if (plant.current_humidity > plantTypeDetails.max_humidity) {
+            } else if (humiditySensor && humiditySensor.value > plantTypeDetails.max_humidity) {
                 humidityMessage.textContent = "The humidity is too high! Do not water your plant for now.";
                 humidityMessage.style.color = "red";
             } else {
@@ -79,8 +101,6 @@ document.addEventListener("DOMContentLoaded", async () => {
                 humidityMessage.style.color = "green";
             }
         }
-
-
     } catch (error) {
         console.error("Erreur :", error);
         document.getElementById("plant-name").textContent = "Error loading plant details.";
