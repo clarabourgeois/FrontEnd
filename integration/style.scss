@@ -361,7 +361,19 @@ input:focus, textarea:focus, select:focus {
     text-decoration: underline;
 }
 
-
+/*Ajout de bouton de retour*/
+.back-button-container {
+    margin: 1em;
+}
+.back-button {
+    text-decoration: none;
+    color: #007BFF;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+.back-button:hover {
+    text-decoration: underline;
+}
 
 /* Footer */
 footer {
