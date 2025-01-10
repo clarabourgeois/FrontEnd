@@ -3,13 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>List Plants</title>
+  <title>Plant Details</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Pacifico&display=swap" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css" rel="stylesheet" />
   <link href="assets/stylesheets/output.css" rel="stylesheet" />
+  <script src="js/plantdisplay.js" defer></script>
 </head>
+
 <body>
 <!-- Bandeau principal -->
 <header class="header">
@@ -25,36 +27,33 @@
 <!-- Sous-bandeau -->
 <nav>
   <a href="index.html" class="sub-header-link">Home</a>
-  <a href="about.html" class="sub-header-link">Our Roots</a>
-  <a href="listplants.html" class="sub-header-link">Plant List</a>
-  <a href="addplant.html" class="sub-header-link">Add Your Plant</a>
+  <a href="about.html" class="sub-header-link">About</a>
+  <a href="listplants.html" class="sub-header-link">List Plants</a>
+  <a href="addplant.html" class="sub-header-link">Add Plant</a>
   <a href="contact.html" class="sub-header-link">Contact Us</a>
 </nav>
 
-<!-- Section Liste des Plantes -->
-<main class="plant-list-container">
-  <h1 class="page-title">Your Plants</h1>
-  <ul class="plant-list" id="plant-list">
-    <!-- Plantes statiques pour le moment -->
-    <li class="plant-item">
-      <a href="plant-details.html?plant_id=1">Aloe Vera</a>
-    </li>
-    <li class="plant-item">
-      <a href="plant-details.html?plant_id=2">Bamboo Palm</a>
-    </li>
-    <li class="plant-item">
-      <a href="plant-details.html?plant_id=3">Snake Plant</a>
-    </li>
-    <li class="plant-item">
-      <a href="plant-details.html?plant_id=4">Spider Plant</a>
-    </li>
-    <!--------------- Plantes statiques pour le moment ---------------------------------------------->
-  </ul>
+<!-- Page Détails de la Plante -->
+<main class="main-plant-details">
+  <h1 class="plant-title" id="plant-name">Plant Name</h1>
+
+  <div class="plant-image">
+    <img id="plant-image" src="assets/img/default-plant.png" alt="Plant Image">
+  </div>
+
+  <div class="plant-info">
+    <p><strong>Description:</strong> <span id="plant-description">This is a default description of the plant.</span></p>
+    <p><strong>Type:</strong> <span id="plant-type">Default Type</span></p>
+    <p><strong>Temperature:</strong> <span id="plant-temperature">Default Temperature</span></p>
+    <p><strong>Humidity:</strong> <span id="plant-humidity">Default Humidity</span></p>
+    <p id="temperature-message"></p> <!-- Message lié à la température -->
+  </div>
 </main>
 
 <!-- Footer -->
 <footer>
   <p>&copy; 2025 SmartPlant. All rights reserved.</p>
 </footer>
+
 </body>
 </html>
