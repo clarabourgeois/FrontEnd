@@ -292,6 +292,9 @@ input:focus, textarea:focus, select:focus {
     transform: scale(1.05);
 }
 
+
+
+
 /* Section Liste des Plantes */
 .plant-list-container {
     padding: 10px;
@@ -305,17 +308,44 @@ input:focus, textarea:focus, select:focus {
     color: #3a7d3a;
     margin-bottom: 20px;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+    text-align: center;
 }
 
-.plant-list {
-    list-style: none;
+.plants-wrapper {
+    display: flex;
+    align-items: center; /* Aligner verticalement au centre */
+    justify-content: space-between; /* Espacement égal entre les éléments */
+    gap: 10px; /* Espacement entre les éléments */
+    max-width: 1200px; /* Limite la largeur totale pour que ce soit plus esthétique */
+    margin: 0 auto; /* Centrer le tout */
+    flex-wrap: wrap; /* Permet de s'adapter aux petits écrans */
+}
+
+.plant-image-left{
+    flex: 1; /* Les images prennent 1 fraction de l'espace */
+    max-width: 400px; /* Limite la taille des images */
+    width: 100%; /* Les images prennent 100% de la largeur de leur conteneur */
+    border-radius: 10px;
+    object-fit: cover; /* Assure-toi que l'image soit bien découpée */
+}
+
+.plant-image-right {
+    flex: 1; /* Les images prennent 1 fraction de l'espace */
+    max-width: 360px; /* Limite la taille des images */
+    width: 100%; /* Les images prennent 100% de la largeur de leur conteneur */
+    border-radius: 10px;
+    object-fit: cover; /* Assure-toi que l'image soit bien découpée */
+}
+
+.plant-list-wrapper {
+    flex: 2; /* La liste prend plus de place */
+    max-width: 400px; /* Limite la largeur de la liste */
+    list-style-type: none;
     padding: 0;
-    max-width: 600px;
-    margin: 0 auto;
 }
 
 .plant-item {
-    margin: 10px 0;
+    margin: 20px 0;
     font-size: 1.2em;
 }
 
@@ -330,6 +360,8 @@ input:focus, textarea:focus, select:focus {
     color: #2c6d2c;
     text-decoration: underline;
 }
+
+
 
 /* Footer */
 footer {
