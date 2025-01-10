@@ -8,8 +8,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Pacifico&display=swap" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css" rel="stylesheet" />
+  <!-- Inclure Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   <link href="assets/stylesheets/output.css" rel="stylesheet" />
-  <script src="js/plantdisplay.js" defer></script>
 </head>
 
 <body>
@@ -40,6 +41,14 @@
   </a>
 </div>
 
+<!-- Bouton de suppression -->
+<div class="delete-button-container">
+  <button id="delete-plant-btn" class="delete-btn">
+    <span>Delete This Plant</span>
+  </button>
+</div>
+
+
 <!-- Page Détails de la Plante -->
 <main class="main-plant-details">
   <h1 class="plant-title" id="plant-name">Plant Name</h1>
@@ -67,6 +76,7 @@
 <footer>
   <p>&copy; 2025 SmartPlant. All rights reserved.</p>
 </footer>
-
+<script src="js/plantdisplay.js" defer></script>
+<script src="js/deleteplant.js"></script>
 </body>
 </html>

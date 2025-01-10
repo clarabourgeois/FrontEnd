@@ -375,6 +375,41 @@ input:focus, textarea:focus, select:focus {
     text-decoration: underline;
 }
 
+/*delete plant*/
+.delete-button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+.delete-btn {
+    background-color: #e74c3c; /* Couleur de fond rouge pour la suppression */
+    color: white;
+    font-size: 16px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+.delete-btn::before {
+    content: '\f1f8'; /* Code de l'icône de poubelle de Font Awesome */
+    font-family: 'Font Awesome 5 Free'; /* Assurez-vous d'inclure Font Awesome dans votre projet */
+    font-weight: 900;
+    margin-right: 10px; /* Espace entre l'icône et le texte */
+    font-size: 18px;
+}
+.delete-btn:hover {
+    background-color: #c0392b; /* Couleur plus sombre pour l'effet de survol */
+    transform: scale(1.1); /* Légère augmentation de la taille du bouton */
+}
+.delete-btn:active {
+    background-color: #e74c3c; /* Couleur de fond originale lors du clic */
+    transform: scale(0.95); /* Réduction de la taille lors du clic */
+}
+
 /* Footer */
 footer {
     margin-top: 40px;
