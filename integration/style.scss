@@ -353,3 +353,47 @@ a {
     text-decoration: inherit;
     color: inherit;
 }
+
+/* Section Détails de la Plante */
+.main-plant-details {
+    background: linear-gradient(to bottom, #ffffff, #e8f5e9);
+    padding: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    max-width: 900px;
+    margin: 20px auto;
+}
+
+.plant-title {
+    text-align: center;
+    font-size: 2.5em;
+    font-weight: bold;
+    color: #3a7d3a;
+    margin-bottom: 20px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.plant-content {
+    display: flex;
+    gap: 20px;
+}
+
+.plant-image {
+    flex: 1; /* Prend 1/3 de l'espace */
+}
+
+.plant-image img {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.plant-info {
+    flex: 2; /* Prend 2/3 de l'espace */
+    padding: 10px;
+    font-size: 1.1em;
+    color: #4a4a4a;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}

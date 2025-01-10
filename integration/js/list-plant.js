@@ -34,7 +34,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
             const link = document.createElement("a");
             // Lien dynamique vers la page détails
-            link.href = `plant-details.html?plant_id=${plant.id}`;
+            link.href = `plant.html?plant_id=${plant.id}`;
+
             // Affiche le nom et le type de plante
             link.textContent = `${plant.name} (${plant.plantType})`;
 
