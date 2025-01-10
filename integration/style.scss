@@ -168,6 +168,7 @@ nav a:hover {
     flex-wrap: wrap;
     margin: 30px 20px;      /* Ajoute des marges autour de la section */
     align-items: center;    /* Centre le contenu en hauteur */
+    padding:10px;
 }
 
 .content {
@@ -184,7 +185,6 @@ nav a:hover {
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     object-fit: cover;
-    padding: 10px;
 }
 
 
